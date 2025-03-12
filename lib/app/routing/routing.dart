@@ -1,5 +1,6 @@
 import 'package:centum_d_test_task/app/routing/route_constants.dart';
 import 'package:centum_d_test_task/app/screens/home/home_factory.dart';
+import 'package:centum_d_test_task/app/screens/tournaments/tournaments_factory.dart';
 import 'package:flutter/material.dart';
 
 class Routing {
@@ -7,8 +8,8 @@ class Routing {
     switch (settings.name) {
       case routeHome:
         return _buildHomeScreen(settings);
-      case routeTournamentDetails:
-        return _buildTournamentDetailsScreen(settings);
+      case routeTournaments:
+        return _buildTournamentsScreen(settings);
       default:
         return MaterialPageRoute(
           builder: (BuildContext context) {
@@ -32,12 +33,10 @@ class Routing {
     );
   }
 
-  static MaterialPageRoute _buildTournamentDetailsScreen(
-    RouteSettings settings,
-  ) {
+  static MaterialPageRoute _buildTournamentsScreen(RouteSettings settings) {
     return MaterialPageRoute(
       builder: (_) {
-        return const SizedBox();
+        return TournamentsFactory.build();
       },
     );
   }

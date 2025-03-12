@@ -1,5 +1,6 @@
 import 'package:centum_d_test_task/app/app_view_model.dart';
 import 'package:centum_d_test_task/app/routing/routing.dart';
+import 'package:centum_d_test_task/app/theme/text_theme.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -12,6 +13,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Centum-D Task',
       theme: ThemeData(
+        textTheme: textTheme,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       navigatorKey: viewModel.navigatorKey,
