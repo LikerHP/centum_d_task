@@ -15,12 +15,12 @@ class TournamentsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BackButton(
-              onPressed: viewModel.onBackButtonPressed
-            ),
+            BackButton(onPressed: viewModel.onBackButtonPressed),
             TournamentsList(
               isLoading: viewModel.isLoading,
               tournaments: viewModel.tournaments,
+              errorMessage: viewModel.errorMessage,
+              isErrorOccurred: viewModel.isErrorOccurred,
             ),
           ],
         ),

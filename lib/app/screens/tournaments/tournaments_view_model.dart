@@ -25,6 +25,9 @@ class TournamentsViewModel extends ChangeNotifier{
 
   bool get isErrorOccurred => _isErrorOccurred;
 
+  String _errorMessage = '';
+  String get errorMessage => _errorMessage;
+
   void startWithLoading() {
     _isLoading = true;
     _updateUI();
@@ -40,9 +43,10 @@ class TournamentsViewModel extends ChangeNotifier{
       }
       _isLoading = false;
       _updateUI();
-    } catch (_) {
+    } catch (e) {
       _isLoading = false;
       _isErrorOccurred = true;
+      _errorMessage = e.toString();
       _updateUI();
     }
   }
