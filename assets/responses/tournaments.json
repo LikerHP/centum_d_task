@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Champions League",
+    "start_date": "2024-09-01",
+    "end_date": "2025-05-30",
+    "teams": 32
+  },
+  {
+    "id": 2,
+    "name": "Europa League",
+    "start_date": "2024-09-05",
+    "end_date": "2025-05-27",
+    "teams": 48
+  }
+]
