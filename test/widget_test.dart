@@ -6,6 +6,8 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:centum_d_test_task/app/app.dart';
+import 'package:centum_d_test_task/app/app_view_model.dart';
+import 'package:centum_d_test_task/app/routing/navigation_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -14,7 +16,9 @@ import 'package:centum_d_test_task/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const App());
+    await tester.pumpWidget(
+      App(viewModel: AppViewModel(navigationUtil: NavigationUtil())),
+    );
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

@@ -1,17 +1,23 @@
+import 'package:centum_d_test_task/app/app_view_model.dart';
+import 'package:centum_d_test_task/app/routing/routing.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
-  const App({super.key});
+  const App({required this.viewModel, super.key});
 
-  // This widget is the root of your application.
+  final AppViewModel viewModel;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Centum-D Task',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      navigatorKey: viewModel.navigatorKey,
+      onGenerateRoute:
+          (RouteSettings settings) => Routing.onGenerateRoute(settings),
+      home: Routing.buildHomeScreen(),
     );
   }
 }
