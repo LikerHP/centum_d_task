@@ -13,12 +13,18 @@ class TournamentRepository extends ITournamentRepository {
   @override
   Future<List<ITournament>> fetchTournaments() async {
     try {
+      List<dynamic>? data;
       final String json = await rootBundle.loadString(_tournamentsPath);
-      final List<dynamic> data = jsonDecode(json);
-
-      return List<ITournament>.from(
-        data.map((tournament) => Tournament.fromJson(tournament)).toList(),
-      );
+      await Future.delayed(const Duration(seconds: 3), () async {
+        data = jsonDecode(json);
+      });
+      if (data != null) {
+        return List<ITournament>.from(
+          data!.map((tournament) => Tournament.fromJson(tournament)).toList(),
+        );
+      } else {
+        throw (Exception('Data is not found'));
+      }
     } catch (_) {
       rethrow;
     }
